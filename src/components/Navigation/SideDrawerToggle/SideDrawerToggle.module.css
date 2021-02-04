@@ -1,0 +1,44 @@
+span:first-child {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    left: 0;
+}
+
+span:last-child {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    left: 0;
+}
+
+span {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    left: 0;
+}
+
+.toggleWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 32px;
+    height: 100%;
+}
+
+.toggle {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    justify-content: space-evenly;
+
+}
+
+@media (min-width: 500px) {
+    .toggleWrapper {
+        display: none;
+    }
+
+}

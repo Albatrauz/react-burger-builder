@@ -29,6 +29,15 @@ const BurgerBuilder= () => {
     togglePurchaseMode(true);
   }
 
+  const purchaseCancelHandler = () => {
+    togglePurchaseMode(false);
+  }
+
+  const purchaseContinueHandler = () => {
+    alert('You continue!');
+  }
+
+
   const updatePurchaseState = (updatedIngredients) => {
     const sum = Object.values(updatedIngredients)
         .reduce((current, el) => {
@@ -77,15 +86,18 @@ const BurgerBuilder= () => {
   const disabledInfo = {
     ...ingredients
   }
-
   for (let key in disabledInfo) {
     disabledInfo[key] = disabledInfo[key]  <= 0;
   }
 
   return (
     <>
-      <Modal show={purchasing}>
-        <OrderSummary ingredients={ingredients} />
+      <Modal show={purchasing} modalClosed={purchaseCancelHandler}>
+        <OrderSummary
+            purchaseCancelled={purchaseCancelHandler}
+            price={price}
+            purchaseContinued={purchaseContinueHandler}
+            ingredients={ingredients} />
       </Modal>
 
       <Burger ingredients={ingredients} />
